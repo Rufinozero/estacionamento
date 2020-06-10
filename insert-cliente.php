@@ -25,7 +25,7 @@
             <p class="text-success">Dados do Cliente - OK</p>
         </h2>
 
-        <?php}
+<?php }
 
     else {
         $msg = mysqli_error($conexao);
