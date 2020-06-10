@@ -1,8 +1,8 @@
 <?php
 
-	function insert_Cliente($conexao,$nome,$dtnasc,$cpf,$cnpj,$sexo,$telefone,$tipocliente,$email,$nome_rua,$numero_casa,$complemento,$bairro,$cidade,$estado,$cep,$plano){		
-		$query = "INSERT INTO DCLIENTE (NOME,DTNASC,CPF,CNPJ,SEXO,TELEFONE,TIPO_CLIENTE,EMAIL,NOME_RUA,NUMERO_CASA,COMPLEMENTO,BAIRRO,CIDADE,ESTADO,CEP,IDPLANO)
-		              VALUES ('{$nome}','{$dtnasc}','{$cpf}','{$cnpj}','{$sexo}','{$telefone}','{$tipocliente}','{$email}','{$nome_rua}','{$numero_casa}','{$complemento}','{$bairro}','{$cidade}','{$estado}','{$cep}','{$plano}'";
+	function insert_Cliente($conexao,$nome,$dtnasc,$cpf,$cnpj,$sexo,$telefone,$email,$cep,$nome_rua,$numero_casa,$complemento,$bairro,$cidade,$estado){		
+		$query = "INSERT INTO DCLIENTE (NOME,DTNASC,CPF,CNPJ,SEXO,TELEFONE,EMAIL,CEP,NOME_RUA,NUMERO_CASA,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
+		              VALUES ('{$nome}','{$dtnasc}','{$cpf}','{$cnpj}','{$sexo}','{$telefone}','{$email}','{$cep}','{$nome_rua}','{$numero_casa}','{$complemento}','{$bairro}','{$cidade}','{$estado}'";
 	    return mysqli_query($conexao,$query);
 	}
 

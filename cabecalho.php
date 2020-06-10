@@ -15,7 +15,7 @@
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
-					<li><a href="form-insert.php">|| REGISTRO DE CLIENTE ||</a></li>
+					<li><a href="form-insert-cliente.php">|| REGISTRO DE CLIENTE ||</a></li>
 			</div>
 		</div>
 	</div>
