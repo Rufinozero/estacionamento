@@ -1,0 +1,4 @@
+na pagina de cadastro
+	mascara para o cpf, cpnj, telefone, cep
+	uma combo box para os estados e validar na BLL o uf. Ex: selecionou Mina Gerais, tem que ir para o banco como MG
+	fazer validação da confirmação da senha
