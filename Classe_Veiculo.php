@@ -16,16 +16,16 @@
         {
             //atributos e métodos que irão se realizar quando a classe for instanciada
             include("Classe_Conexao.php");
-            $this->$placa="";
-            $this->$marca="";
-            $this->$modelo="";
-            $this->$cor="";
-            $this->$tipo_veiculo="";
-            $this->$descricao_tipo="";
-            $this->$observacoes="";
-            $this->$idcliente="";
-            $this->$idplano="";
-            $this->$status="";
+            $this->placa="";
+            $this->marca="";
+            $this->modelo="";
+            $this->cor="";
+            $this->tipo_veiculo="";
+            $this->descricao_tipo="";
+            $this->observacoes="";
+            $this->idcliente="";
+            $this->idplano="";
+            $this->status="";
         }
         //Método de inserção de veículos, ela será chamada nas páginas quando formos inserir, reutilizando o código
         
@@ -35,7 +35,21 @@
 			//instanciação de outras classes, sendo uma base. A BLL e essa classe(Classe_Cliente), e ela trabalha tudo envolvo em lóogica de CRUD(Create,Retrieve,Update,Delete)
 			//ou afins, e ela necessita da DAL e da DTO(Não estamos utilizando DTO nesse sistema). Por último, a UI, ela é página em que trabalhamos, 
 			//a única camada que o usuário urá interagir, e ela necessita da BLL e da DTO, sendo a BLL usando a DAL.
-			$objConexao = new Conexao();
+            
+            if ($this->tipo_veiculo==1)
+            {
+                $this->descricao_tipo="Carro pequeno";
+            }
+            else if ($this->tipo_veiculo==2)
+            {
+                $this->descricao_tipo="Carro grande";
+            }
+            else 
+            {
+                $this->descricao_tipo="Motocicleta";
+            }
+
+            $objConexao = new Conexao();
 			$sql = "insert into dVeiculo values
 					(
 						'".$this->placa."', 

@@ -22,12 +22,17 @@
 		{
 			$objConexao = new Conexao();
 			
-			$sqlUSR = "select senha from dUsuario where login =".$this->usrLogin;
+			$sqlUSR = "select senha from dUsuario where login = '".$this->usrLogin."'";
 			//Verificação se a variável de inserção retornará true do Banco de Dados
-			if ($objConexao->conexao->query($sqlUSR) === TRUE) 
+			
+			$ExecuteSQL = $objConexao->conexao->query($sqlUSR);
+			
+			if ($ExecuteSQL === TRUE) 
 			{
 				$Row = mysqli_num_rows($ExecuteSQL);
 				$DataTableP = mysqli_fetch_assoc($ExecuteSQL);
+				$this->pwdLogin=md5($this->pwdLogin);	
+
 				if($this->pwdLogin == $DataTableP['senha'])
 				{
 					$this->status=true;
@@ -39,12 +44,17 @@
 			}
 			else 
 			{
-				$sqlUSR = "select senha from dCliente where email =".$this->cliEmail;
+				$sqlCLI = "select senha from dCliente where email ='".$this->cliEmail."'";
 				//Verificação se a variável de inserção retornará true do Banco de Dados
-				if ($objConexao->conexao->query($sqlUSR) === TRUE) 
+
+				$ExecuteSQL = $objConexao->conexao->query($sqlCLI);
+
+				if ($ExecuteSQL === TRUE) 
 				{
 					$Row = mysqli_num_rows($ExecuteSQL);
 					$DataTableP = mysqli_fetch_assoc($ExecuteSQL);
+					$this->cliSenha=md5($this->cliSenha);
+
 					if($this->cliSenha == $DataTableP['senha'])
 					{
 						$this->status=true;
@@ -57,7 +67,7 @@
 				else
 				{
 					//Neste echo, ele apresentará que a query retornou false, e que nela contém um erro, apresentando tabém o erro e a linha em que se encontra
-					echo "<script>alert('Email incorreto ou não existente');</script>";
+					echo "<script>alert('".$sqlUSR."');</script>";
 				}
 			}
 		}

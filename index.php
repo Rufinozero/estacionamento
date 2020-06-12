@@ -75,8 +75,10 @@
 				if($objLogin->status == true)
 				{
 					$_SESSION{"LGN"} = true;
-					header('location: Desktop.php');
+					echo "<script>alert('Deu certo ;)');</script>";
+					//header('location: Desktop.php');
 				}
+				echo "<script>alert('deu errado :(');</script>";
 			}
         ?>
     </body>
